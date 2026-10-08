@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Natural Palette Site</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<nav>
+  <div class="logo">Elbert Manansala</div>
+  <ul>
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#activity">Activity</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section id="home">
+    <h1>Simple things,<br>made with care.</h1>
+    <p>Welcome. This is a small space for my work, my habits and the skills I'm growing.</p>
+    <a class="btn" href="#activity">See recent activity</a>
+  </section>
+
+  <section id="activity">
+    <h2>Activity</h2>
+    <ul class="list">
+      <li><a href="#activity">Activity 1</a></li>
+      <li><a href="#activity">Activity 2</a></li>
+      <li><a href="#activity">Activity 3</a></li>
+      <li><a href="#activity">Activity 4</a></li>
+    </ul>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skill"><div><span>HTML &amp; CSS</span><span>90%</span></div><div class="bar"><i style="width:90%"></i></div></div>
+    <div class="skill"><div><span>JavaScript</span><span>75%</span></div><div class="bar"><i style="width:75%"></i></div></div>
+    <div class="skill"><div><span>UI Design</span><span>80%</span></div><div class="bar"><i style="width:80%"></i></div></div>
+    <div class="skill"><div><span>Writing</span><span>70%</span></div><div class="bar"><i style="width:70%"></i></div></div>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>I'm a designer and developer who likes calm interfaces and earthy colors. I build clear, fast pages that are easy to read and easy to use.</p>
+    <p>Say hello at <a href="mailto:you@example.com" style="color:var(--brick)">Elbert@gmail.com</a>.</p>
+  </section>
+</main>
+
+<footer>&copy; 2026 Elbert</footer>
+
+<script>
+  // Highlight the nav link of the section currently in view
+  const links = document.querySelectorAll('nav a');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  document.querySelectorAll('section').forEach(s => io.observe(s));
+</script>
+</body>
+</html>
